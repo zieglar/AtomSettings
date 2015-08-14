@@ -1,0 +1,29 @@
+"*":
+  "exception-reporting":
+  welcome:
+    showOnStartup: false
+  "one-dark-ui": {}
+  core: {}
+  editor:
+    invisibles: {}
+    fontSize: 18
+    showIndentGuide: true
+    fontFamily: "Monoid"
+    softWrap: true
+  "linter-eslint":
+    globalNodePath: "<--NODE-PATH-->"
+    useGlobalEslint: true
+    showRuleIdInMessage: true
+  "linter-jscs":
+    esnext: true
+    preset: "node-style-guide"
+    displayAs: "warning"
+  linter: {}
+  minimap:
+    plugins:
+      bookmarks: true
+      "git-diff": true
+      linter: true
+      selection: true
+      "highlight-selected": true
+      "find-and-replace": true

@@ -1,0 +1,181 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it here:
+# https://github.com/bevry/cson#what-is-cson
+'.source.js':
+#  'console.log':
+#    'prefix': 'log'
+#    'body': 'console.log("$1");$2'
+#  'if':
+#    'prefix': 'if'
+#    'body': """
+#      if (${1:true}) {
+#        $2
+#      }
+#    """
+#  'if, else':
+#    'prefix': 'ife'
+#    'body': """
+#      if (${1:true}) {
+#        $2
+#      } else {
+#        $3
+#      }
+#    """
+#  'if, else if, else':
+#    'prefix': 'ieie'
+#    'body': """
+#      if (${1:true}) {
+#        $2
+#      } else if (${3:false}) {
+#        $4
+#      } else {
+#        $5
+#      }
+#    """
+  'co1':
+    'prefix':'co1'
+    'body':'co = require(\'co\'),'
+  'co2':
+    'prefix':'co2'
+    'body':'var co = require(\'co\');'
+  'cofn':
+    'prefix':'cofn'
+    'body': """
+      co(function *(){
+        $1
+      }).catch(${2:onerror});
+    """
+  'sailsmt':
+    'prefix':'sailsmt'
+    'body':"""
+      schema: true,
+      autoPK: false,
+
+      attributes: {
+        id: {
+          type: 'string',
+          primaryKey: true
+        },
+      },
+      ${1:beforeCreate: function(values, next) {
+        next();
+      \\},}
+      ${2:beforeUpdate: function(values, next) {
+        next();
+      \\}}
+    """
+  'asyncauto':
+    'prefix':'asyncauto'
+    'body': """
+      async.auto({
+        ${1:function}: function ${1:fnName}Fn(callback) {$2},
+      }, function(err, results){
+      });
+    """
+  'asyncautofn':
+    'prefix':'aafn'
+    'body': """
+      ${1:function}: function ${1:fnName}Fn(callback) {
+        $2
+        return callback(null, result);
+      },
+    """
+  'asyncautoprefn':
+    'prefix':'aaprefn'
+    'body': """
+      ${1:function}: [
+        '${2:pre}\',
+        function ${1:fnName}Fn(callback, result) {
+          $4
+          return callback(null, result);
+        }
+      ]
+    """
+  'defaultsTo':
+    'prefix':'dt'
+    'body': 'defaultsTo: $1,'
+  'unuse':
+    'prefix':'unuse'
+    'body': '/*jshint unused:true */'
+  'tojson':
+    'prefix':'tojson'
+    'body': """
+      toJSON: function() {
+        var obj = this.toObject();
+        delete obj.createdAt;
+        delete obj.updatedAt;
+        return obj;
+      },
+    """
+  'callback':
+    'prefix':'callback'
+    'body': """
+      function (${1:err},${2:results}) {
+        if(${1:err}){
+          return callback(${1:err});
+        }${3}
+        return callback(null, ${2:results});
+      }
+    """
+  'idString':
+    'prefix':'idstr'
+    'body': """
+      id: {
+        type: 'string',
+        primaryKey: true
+      },
+    """
+  'Model normal Field':
+    'prefix':'mf'
+    'body': """
+      ${1:field}: {
+        type: '${2:string}',
+        defaultsTo: ${3:''}
+      },$4
+    """
+  'Model model Field':
+    'prefix':'mmf'
+    'body': """
+      ${1:field}: {
+        model: '${2:model}'
+      },$3
+    """
+  'Model collection Field':
+    'prefix':'mcf'
+    'body': """
+      ${1:field}: {
+        collection: '${2:model}',
+        via: '${3:via}'
+      },$4
+    """
+  'beforeCreate':
+    'prefix':'bc'
+    'body': """
+      beforeCreate: function(values, next) {
+        values.id = ObjectID.id();
+
+        next();
+      },
+    """
+  'ifErr':
+    'prefix':'iferr'
+    'body': """
+      if (${1:err}) {
+        return ${2:callback}(${1:err});
+      }
+    """
